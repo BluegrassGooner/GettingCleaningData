@@ -1,0 +1,3 @@
+Getting and Cleaning Data Course Project
+
+The run_analysis.R code takes the various txt files provided in the UCI HAR Dataset (excluding the Inertial Signals) and constructs a large data frame combining the test and train subsets of observations. Next the code, removes all variables that do not deal with mean and standard deviation calculations and produces a tidy data set that contains only the average of those variables for each activity and each subject. 
