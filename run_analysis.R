@@ -1,5 +1,5 @@
 #Download the data file
-#if(!file.exists("./data")){dir.create("./data")}
+if(!file.exists("./data")){dir.create("./data")}
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileUrl, destfile="./Dataset.zip", method = "curl")
 unzip("Dataset.zip")
@@ -45,8 +45,5 @@ final$Activity <- mapvalues(final$Activity,activity_labels[,1],as.character(acti
 library(dplyr)
 tidy_data_set <- group_by(final,Subject,Activity) %>% summarise_each(funs(mean))
 
-v.list <- names(final)
-for.loop = NULL
-for(i in length(v.list)){for.loop[i] = v.list[i]}
-
+write.table(tidy_data_set, "./tidydata.txt", row.name=F)
 
